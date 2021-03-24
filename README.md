@@ -1,0 +1,2 @@
+# smachallenge
+SMAChallenge project
