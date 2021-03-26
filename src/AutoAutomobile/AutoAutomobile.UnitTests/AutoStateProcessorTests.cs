@@ -49,7 +49,6 @@ namespace AutoAutomobile.UnitTests
             var processor = new AutoStateProcessor(mockLogger.Object);
             var testCarState = GetTestCarState(); // Defaults to on, idling, 0 m/s;
             var testRoadState = GetTestRoadState(20, 24);
-            // 96 meters with 24 m/s max will give us 4 seconds of acceleration at 12m/s, and 2 seconds of coast at 24m/s
 
             var expectedFirstAction = GetTestAutoCarAction(AutoCommandType.IgnitionOff, null, TimeSpan.Zero);
 
@@ -66,9 +65,8 @@ namespace AutoAutomobile.UnitTests
         {
             // Arrange
             var processor = new AutoStateProcessor(mockLogger.Object);
-            var testCarState = GetTestCarState(currentVelocity: 6); // Defaults to on, idling, 0 m/s;
+            var testCarState = GetTestCarState(currentVelocity: 6); 
             var testRoadState = GetTestRoadState(20, 24);
-            // 96 meters with 24 m/s max will give us 4 seconds of acceleration at 12m/s, and 2 seconds of coast at 24m/s
 
             var expectedFirstAction = GetTestAutoCarAction(AutoCommandType.Brake, 6, TimeSpan.Zero);
             var expectedSecondAction = GetTestAutoCarAction(AutoCommandType.Accelerate, 0, TimeSpan.FromSeconds(1));
@@ -109,7 +107,6 @@ namespace AutoAutomobile.UnitTests
             var processor = new AutoStateProcessor(mockLogger.Object);
             var testCarState = GetTestCarState(currentVelocity: 48);
             var testRoadState = GetTestRoadState(20, 48, 300, 0, 0);
-            // 24 meters at 24 m/s should be a delay of 1 second
 
             var expectedFirstAction = GetTestAutoCarAction(AutoCommandType.Brake, 6, TimeSpan.FromSeconds(3.25));
             var expectedSecondAction = GetTestAutoCarAction(AutoCommandType.Accelerate, 0, TimeSpan.FromSeconds(4));
@@ -131,7 +128,6 @@ namespace AutoAutomobile.UnitTests
             var processor = new AutoStateProcessor(mockLogger.Object);
             var testCarState = GetTestCarState(currentVelocity: 12);
             var testRoadState = GetTestRoadState(40, 40, 140, 35, 35);
-            // 24 meters at 24 m/s should be a delay of 1 second
 
             var expectedFirstAction = GetTestAutoCarAction(AutoCommandType.Accelerate, 6, TimeSpan.FromSeconds(0));
             var expectedSecondAction = GetTestAutoCarAction(AutoCommandType.Brake, 6, TimeSpan.FromSeconds(3.25));

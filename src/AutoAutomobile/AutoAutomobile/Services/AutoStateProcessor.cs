@@ -101,8 +101,6 @@ namespace AutoAutomobile
             }
             if (brakingStart < double.PositiveInfinity)
             {
-                // We have to start braking at some point.
-                var acceleratedCurrent = initialVelocity + (Math.Min(accelerationEnd, brakingStart) * accelerationForce);
                 // We need to hit the brakes at some point.
                 yield return new AutoCarAction(AutoCommandType.Brake, TimeSpan.FromSeconds(brakingStart - delayOffset), (int)brakingForce);
                 delayOffset = brakingStart;
@@ -140,16 +138,6 @@ namespace AutoAutomobile
         // Calculates what braking is neede and when such braking should start based on current acceleration (if any)
         private (double brakingStart, double brakingEnd) CalculateBrakingNeeded(double currentVelocity, double accelerationForce, double maxVelocity, double distanceBeforeEnforcement, double enforcementTargetSpeed)
         {
-            var v0 = currentVelocity;
-            var v2 = enforcementTargetSpeed;
-            var d = -brakingForce;
-            var s = distanceBeforeEnforcement;
-            var a = accelerationForce;
-
-            var s1 = -((2 * d * s + (v0 * v0) - (v2 * v2)) / 2 * a - 2 * d);
-
-            var accelerationDistance = -((2 * -brakingForce * distanceBeforeEnforcement + currentVelocity * currentVelocity - enforcementTargetSpeed * enforcementTargetSpeed) / 2 * accelerationForce - 2 * -brakingForce);
-
             if (maxVelocity <= enforcementTargetSpeed)
             {
                 // no braking is needed
