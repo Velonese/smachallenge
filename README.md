@@ -3,7 +3,7 @@ SMA Tech Challenge project
 
 # Running the app
 
-To run the app without configuration, just compile (or find the zipped exe) and run `AutoAutomobile.exe` - doing so will attempt to execute course 1 with a user named "test@test.com" without any latency compensation.
+To run the app without configuration, just compile (or find the zipped exe) and run `AutoAutomobile.exe` - doing so will attempt to execute course 1 with a user named "test@test.com" with default latency compensation.
 
 The application takes 3 parameters which must be supplied in order:
 1. The course number, 1, 2 or 3.
