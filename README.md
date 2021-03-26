@@ -25,7 +25,7 @@ I started by reading through the documentation, taking a look at the data models
 ![alt text](notes.png)
 
 
-I felt the best approach would be to not attempt to rely too heavily on the API for immediate feedback. The first reason being that I didn't want to end up being rate-limited at some critical juncture or create churn for the sake of checking status x/times per second. The second being that such a system would probably rely on some kind of asynchronous polling system and an associated cache, and it seemed a little unnecessary to get at a solution. While I am certainly not signing up to drive with my eyes closed for multiple seconds, I felt that within the confines of the application in question, it made sense.
+I felt it would be best to avoid relying too heavily on the API for feedback. The first reason being that I didn't want to end up being rate-limited at some critical juncture or create churn for the sake of checking status x/times per second. The second being that such a system would probably rely on some kind of asynchronous polling system and an associated cache, and it seemed a little unnecessary to get at a solution. While I am certainly not signing up to drive with my eyes closed for multiple seconds, I felt that within the confines of the application in question, it made sense.
 
 This model enabled me to trigger a set of actions based solely on Car and Road input.
 
