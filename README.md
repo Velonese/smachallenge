@@ -10,7 +10,7 @@ The application takes 3 parameters which must be supplied in order:
 2. The username - defaults to "test@test.com"
 3. The latency compensation in ms - this defaults to 50ms.
 
-I'll go more into what my thinking was below, but the latency compensation is used to pad / speed up certain events to ensure the API receives signals as the appropriate time. 
+I'll go more into what my thinking was below, but the latency compensation is used to pad / speed up certain events to ensure the API sends signals at the appropriate time. 
 
 # Thoughts
 
